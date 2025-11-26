@@ -1,205 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modern Calculator</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Calculator</title>
 
-<style>
+  <style>
     body {
-        margin: 0;
-        background: #f7f7f7;
-        font-family: Arial, sans-serif;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f2f2f2;
     }
 
     .container {
-        width: 90%;
-        max-width: 420px;
-        background: white;
-        padding: 20px;
-        margin: 30px auto;
-        border-radius: 14px;
-        box-shadow: 0 3px 20px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 400px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     .display {
-        width: 100%;
-        height: 60px;
-        font-size: 28px;
-        text-align: right;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        padding: 10px;
-        margin-bottom: 20px;
+      width: 100%;
+      height: 60px;
+      font-size: 24px;
+      text-align: right;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
     }
 
     .buttons {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 12px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
     }
 
     button {
-        padding: 18px;
-        border-radius: 10px;
-        border: none;
-        background: #2d2d2d;
-        color: white;
-        font-size: 20px;
-        cursor: pointer;
-    }
-    button:hover {
-        background: #444;
+      padding: 15px;
+      font-size: 18px;
+      border: none;
+      background: #222;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
     }
 
-    /* Transparent Ad Box */
+    button:hover {
+      background: #444;
+    }
+
+    /* AD BOX FIXED */
     .ad-box {
-        width: 100%;
-        height: 250px;
-        margin: 30px 0;
-        border-radius: 12px;
-        backdrop-filter: blur(8px);
-        background: rgba(255,255,255,0.15);
-        box-shadow: 0 0 10px rgba(0,0,0,0.08);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
+      width: 100%;
+      min-height: 250px;
+      background: transparent !important;
+      margin: 30px 0;
+      padding: 5px;
+      overflow: hidden;
+      border-radius: 10px;
     }
 
     .long-text {
-        background: #fff;
-        padding: 18px;
-        border-radius: 12px;
-        line-height: 1.6;
-        margin: 20px;
+      padding: 20px;
+      line-height: 1.7;
+      background: #fff;
+      margin: 20px;
+      border-radius: 8px;
     }
-</style>
+  </style>
 
-<!-- POPUP ONLY ONCE -->
-<script>
-let popupShown = false;
-
-function openPopAds() {
-    if (popupShown) return;
-    popupShown = true;
-
-    window.open('https://otieu.com/4/10241001', '_blank');
-    window.open('https://www.effectivegatecpm.com/vdgy50rdy4?key=568509a9cac802eb0b439f1b05bc0d7b', '_blank');
-    window.open('https://data527.click/eca870b6ac90dc76c7e2/a674a195ef/?placementName=default', '_blank');
-}
-
-document.addEventListener("click", openPopAds, { once: true });
-</script>
-
-<!-- AUTO-ROTATE AD SOURCES -->
-<script>
-const adSources = [
-    <script src="https://quge5.com/88/tag.min.js" data-zone="188313" async></script>,
-    <script type='text/javascript' src='//pl28141615.effectivegatecpm.com/30/d5/a1/30d5a110a338ea6b6187c5113c7555de.js'></script>,
-    <script type='text/javascript' src='//pl28141624.effectivegatecpm.com/2a/20/f3/2a20f369b6fe541ff122b4bef9ba54b6.js'></script>,
-    <script src='//data527.click/178c08d1d6d2e3dd77e9/da03cb44c7/?placementName=default'></script>,
-    <ins style="width:0;height:0" class="c2e57236ffc" data-domain="//data527.click" data-affquery="/d6a73c2d063de261071f/2e57236ffc/?placementName=default"><script src="//data527.click/js/responsive.js" async></script></ins>,
-    <script type="text/javascript" src="//data527.click/7c498394b1cfc89e9b30/6b1fa5f5f5/?placementName=default"></script>
-];
-
-function rotateAds() {
-    document.querySelectorAll(".ad-box").forEach(box => {
-        let ad = adSources[Math.floor(Math.random() * adSources.length)];
-        box.innerHTML = ad;
+  <!-- POPUP AD SCRIPT -->
+  <script>
+    function openPopupAd() {
+      window.open('https://otieu.com/4/10241001', '_blank', 'width=400,height=600');
+      window.open('https://www.effectivegatecpm.com/vdgy50rdy4?key=568509a9cac802eb0b439f1b05bc0d7b', '_blank', 'width=400,height=600');
+      window.open('https://data527.click/eca870b6ac90dc76c7e2/a674a195ef/?placementName=default', '_blank', 'width=400,height=600');
+    }
+    document.addEventListener('click', function firstClick() {
+      openPopupAd();
+      document.removeEventListener('click', firstClick);
     });
-}
-
-setInterval(rotateAds, 25000);
-</script>
+  </script>
 
 </head>
 <body>
 
-<!-- CALCULATOR UI -->
-<div class="container">
-    <input type="text" id="display" class="display" disabled>
+  <div class="container">
+    <input type="text" id="display" class="display" disabled />
 
     <div class="buttons">
-        <button onclick="press('7')">7</button>
-        <button onclick="press('8')">8</button>
-        <button onclick="press('9')">9</button>
-        <button onclick="press('/')">/</button>
+      <button onclick="press('7')">7</button>
+      <button onclick="press('8')">8</button>
+      <button onclick="press('9')">9</button>
+      <button onclick="press('/')">/</button>
 
-        <button onclick="press('4')">4</button>
-        <button onclick="press('5')">5</button>
-        <button onclick="press('6')">6</button>
-        <button onclick="press('')"></button>
+      <button onclick="press('4')">4</button>
+      <button onclick="press('5')">5</button>
+      <button onclick="press('6')">6</button>
+      <button onclick="press('*')">*</button>
 
-        <button onclick="press('1')">1</button>
-        <button onclick="press('2')">2</button>
-        <button onclick="press('3')">3</button>
-        <button onclick="press('-')">-</button>
+      <button onclick="press('1')">1</button>
+      <button onclick="press('2')">2</button>
+      <button onclick="press('3')">3</button>
+      <button onclick="press('-')">-</button>
 
-        <button onclick="press('0')">0</button>
-        <button onclick="press('.')">.</button>
-        <button onclick="calculate()">=</button>
-        <button onclick="press('+')">+</button>
+      <button onclick="press('0')">0</button>
+      <button onclick="press('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="press('+')">+</button>
     </div>
-</div>
+  </div>
 
-<!-- RESPONSIVE AUTO-ADS -->
-<div class="ad-box"></div>
-<div class="ad-box"></div>
+  <!-- FIXED ADS (WILL NOT OVERLAP) -->
+  <div class="ad-box">
+    <script>(function(s){s.dataset.zone='10240982',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>  
+  </div>
 
-<div class="long-text">
-    <h2>History of Calculators</h2>
-    Calculators evolved from abacus → mechanical → electronic → digital devices.
-</div>
+  <div class="ad-box">
+    <script src="https://quge5.com/88/tag.min.js" data-zone="188313" async></script>
+  </div>
 
-<div class="ad-box"></div>
-<div class="ad-box"></div>
+  <div class="ad-box">
+    <script src="//pl28141615.effectivegatecpm.com/30/d5/a1/30d5a110a338ea6b6187c5113c7555de.js"></script>
+  </div>
 
-<div class="long-text">
-    <h2>More Information</h2>
-    Computing devices became compact and powerful after microprocessor invention.
-</div>
+  <div class="ad-box">
+    <script src="//data527.click/178c08d1d6d2e3dd77e9/da03cb44c7/?placementName=default"></script>
+  </div>
 
-<!-- Infinite Scroll -->
-<div id="infinite-area"></div>
+  <div class="long-text">
+    <h2>Short History of Calculators</h2>
+    The earliest calculating device was the abacus, used thousands of years ago. Later came mechanical calculators in the 1600s, followed by electronic calculators in the 20th century.
+  </div>
 
-<script>
-function press(v) {
-    document.getElementById("display").value += v;
-}
+  <div id="infinite-area"></div>
 
-function calculate() {
-    try {
-        document.getElementById("display").value =
-            eval(document.getElementById("display").value);
-    } catch (e) {
-        document.getElementById("display").value = "Error";
+  <!-- FIXED JS -->
+  <script>
+    function press(val) {
+      document.getElementById('display').value += val;
     }
-}
 
-let loadCount = 0;
+    function calculate() {
+      try {
+        let result = eval(document.getElementById('display').value);
+        document.getElementById('display').value = result;
+      } catch {
+        document.getElementById('display').value = "Error";
+      }
+    }
 
-window.addEventListener("scroll", () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+    // AUTO REFRESH ADS
+    function refreshAds() {
+      document.querySelectorAll('.ad-box').forEach((box) => {
+        box.innerHTML =
+          '<script src="https://quge5.com/88/tag.min.js" data-zone="188313" async></script>';
+      });
+    }
+    setInterval(refreshAds, 30000);
+
+    // INFINITE ADS + CONTENT
+    window.addEventListener('scroll', () => {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
         
-        let adBox = document.createElement("div");
-        adBox.className = "ad-box";
+        let ad = document.createElement('div');
+        ad.className = "ad-box";
+        ad.innerHTML =
+          `<script src="//pl28141615.effectivegatecpm.com/30/d5/a1/30d5a110a338ea6b6187c5113c7555de.js"></script>`;
 
-        let ad = adSources[Math.floor(Math.random() * adSources.length)];
-        adBox.innerHTML = ad;
-
-        let text = document.createElement("div");
+        let text = document.createElement('div');
         text.className = "long-text";
-        text.innerHTML = `<h2>More Content ${++loadCount}</h2>
-            More details about early computational devices...`;
+        text.innerHTML =
+          "<h2>More About Calculating Devices</h2>As technology evolved, calculating devices became smaller, faster, and more reliable.";
 
-        document.getElementById("infinite-area").appendChild(adBox);
-        document.getElementById("infinite-area").appendChild(text);
-    }
-});
-</script>
-
-<script>rotateAds();</script>
+        document.getElementById("infinite-area").append(ad, text);
+      }
+    });
+  </script>
 
 </body>
 </html>
