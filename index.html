@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f2f2f2;
+    }
+    .container {
+      width: 90%;
+      max-width: 400px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .display {
+      width: 100%;
+      height: 60px;
+      font-size: 24px;
+      text-align: right;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    button {
+      padding: 15px;
+      font-size: 18px;
+      border: none;
+      background: #222;
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #444;
+    }
+    .ad-box {
+      width: 100%;
+      height: 250px;
+      background: #e0e0e0;
+      border: 2px dashed #999;
+      margin: 30px 0;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      color: #555;
+    }
+    .long-text {
+      padding: 20px;
+      line-height: 1.7;
+      background: #fff;
+      margin: 20px;
+      border-radius: 8px;
+    }
+  </style>
+
+  <!-- POPUP ADS COMBINATION SCRIPT -->
+  <script>
+    function openPopupAd() {
+      window.open('INSERT_PROPELLER_POPUP_URL_HERE', '_blank', 'width=400,height=600');
+      window.open('INSERT_ADSTERRA_POPUP_URL_HERE', '_blank', 'width=400,height=600');
+      window.open('INSERT_YLLIX_POPUP_URL_HERE', '_blank', 'width=400,height=600');
+    }
+    document.addEventListener('click', function popupOnce() {
+      openPopupAd();
+      document.removeEventListener('click', popupOnce);
+    });
+  </script>
+
+</head>
+<body>
+
+  <div class="container">
+    <input type="text" id="display" class="display" disabled />
+
+    <div class="buttons">
+      <button onclick="press('7')">7</button>
+      <button onclick="press('8')">8</button>
+      <button onclick="press('9')">9</button>
+      <button onclick="press('/')">/</button>
+      <button onclick="press('4')">4</button>
+      <button onclick="press('5')">5</button>
+      <button onclick="press('6')">6</button>
+      <button onclick="press('')"></button>
+      <button onclick="press('1')">1</button>
+      <button onclick="press('2')">2</button>
+      <button onclick="press('3')">3</button>
+      <button onclick="press('-')">-</button>
+      <button onclick="press('0')">0</button>
+      <button onclick="press('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="press('+')">+</button>
+    </div>
+  </div>
+
+  <!-- Ad slots placeholders - Replace with your network JS scripts -->
+  <div class="ad-box">INSERT_TOP_AD_SCRIPT_HERE</div>
+  <div class="ad-box">INSERT_AD_SLOT_1_SCRIPT_HERE</div>
+  <div class="ad-box">INSERT_AD_SLOT_2_SCRIPT_HERE</div>
+  <div class="ad-box">INSERT_AD_SLOT_3_SCRIPT_HERE</div>
+  <div class="ad-box">INSERT_AD_SLOT_4_SCRIPT_HERE</div>
+
+  <div class="long-text">
+    <h2>Short History of Calculators</h2>
+    The earliest calculating device was the abacus, used thousands of years ago. Later came mechanical calculators in the 1600s, followed by electronic calculators in the 20th century. Modern calculators are digital, fast, compact, and extremely accurate.
+  </div>
+
+  <div class="ad-box">INSERT_AD_SLOT_5_SCRIPT_HERE</div>
+  <div class="ad-box">INSERT_AD_SLOT_6_SCRIPT_HERE</div>
+  <div class="ad-box">INSERT_AD_SLOT_7_SCRIPT_HERE</div>
+
+  <div class="long-text">
+    <h2>Short History of Computing Machines</h2>
+    Early computing machines were huge and slow, built with gears and mechanical components. Over time, vacuum tube computers arrived, then transistor-based systems, and eventually microprocessors—making today’s digital devices possible.
+  </div>
+
+  <div id="infinite-area"></div>
+
+  <script>
+    function press(val) {
+      document.getElementById('display').value += val;
+    }
+    function calculate() {
+      try {
+        let result = eval(document.getElementById('display').value);
+        document.getElementById('display').value = result;
+      } catch (err) {
+        document.getElementById('display').value = 'Error';
+      }
+    }
+
+    // Infinite scroll with auto ad placeholders + auto-refresh every 30 seconds
+    let count = 0;
+    function refreshAds() {
+      document.querySelectorAll('.ad-box').forEach((box) => {
+        box.innerText = 'INSERT_AUTO_AD_SCRIPT_HERE_' + (Math.floor(Math.random() * 1000));
+      });
+    }
+    setInterval(refreshAds, 30000);
+
+    window.addEventListener('scroll', () => {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+        let box = document.createElement('div');
+        box.className = 'ad-box';
+        box.innerText = 'INSERT_AUTO_AD_SCRIPT_HERE_' + (++count);
+
+        let text = document.createElement('div');
+        text.className = 'long-text';
+        text.innerHTML = '<h2>More About Calculating Devices</h2>Early calculating devices evolved from simple tools to complex machines. As technology improved, devices became smaller, faster, and more reliable.';
+
+        document.getElementById('infinite-area').appendChild(box);
+        document.getElementById('infinite-area').appendChild(text);
+      }
+    });
+  </script>
+
+</body>
+</html>
